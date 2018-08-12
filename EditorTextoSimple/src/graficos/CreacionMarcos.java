@@ -11,7 +11,9 @@ public class CreacionMarcos extends JFrame{
 	private int height;
 	private int posicionCentroX;
 	private int posicionCentroY;
-	private PanelPrincipal panel;
+	private Menu menu;
+	private JPanel panelPrincipal;
+	private Text texto;
 	
 	public CreacionMarcos() {
 		//pantalla podria ser atributo??
@@ -23,15 +25,18 @@ public class CreacionMarcos extends JFrame{
 		this.posicionCentroX = screenSize.width / 4;
 		this.posicionCentroY = screenSize.height / 4;
 		
-		this.panel = new PanelPrincipal();
-
+		this.menu = new Menu();
+		this.texto = new Text();
+		
 		
 		//construyendo el marco
-		this.setBounds(posicionCentroX, posicionCentroY, width, height); //se podria usar setLocation quitrando el tamaño pero habria que añadir setSize
+		this.setBounds(posicionCentroX, posicionCentroY, width, height); //se podria usar setLocation quitrando el tamaï¿½o pero habria que aï¿½adir setSize
 		this.setTitle("Nuevo Editor de Texto");
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.add(panel);
+		this.setJMenuBar(menu);
+		this.add(texto);
+		
 		//this.setResizable(false); --> por defecto es true.
 		
 		//contruyendo panel
