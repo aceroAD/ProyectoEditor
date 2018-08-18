@@ -1,4 +1,5 @@
 package graficos;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Toolkit;
@@ -12,8 +13,8 @@ public class CreacionMarcos extends JFrame{
 	private int posicionCentroX;
 	private int posicionCentroY;
 	private Menu menu;
-	private JPanel panelPrincipal;
-	private Text texto;
+	private Text editorTexto;
+	
 	
 	public CreacionMarcos() {
 		//pantalla podria ser atributo??
@@ -26,22 +27,22 @@ public class CreacionMarcos extends JFrame{
 		this.posicionCentroY = screenSize.height / 4;
 		
 		this.menu = new Menu();
-		this.texto = new Text();
+		
 		
 		
 		//construyendo el marco
 		this.setBounds(posicionCentroX, posicionCentroY, width, height); //se podria usar setLocation quitrando el tama�o pero habria que a�adir setSize
 		this.setTitle("Nuevo Editor de Texto");
-		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setJMenuBar(menu);
-		this.add(texto);
 		
-		//this.setResizable(false); --> por defecto es true.
-		
-		//contruyendo panel
 	
 		
+		//contruyendo panel
+		this.editorTexto = new Text(width, height);
+		this.add(editorTexto);
+	
+		this.setVisible(true);
 		
 	}
 	
