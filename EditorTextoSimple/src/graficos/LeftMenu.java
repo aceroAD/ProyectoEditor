@@ -13,11 +13,6 @@ public class LeftMenu extends JPanel{
 		this.panelIzq = new JPanel();
 		this.panelIzq.setPreferredSize(new Dimension(200, this.getMaximumSize().height));
 		
-		this.add(panelIzq);
-		
-		//color just to see it
-		this.setBackground(Color.BLUE);
-		
-		
+		this.add(panelIzq);		
 	}
 }

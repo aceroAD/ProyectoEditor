@@ -1,5 +1,6 @@
 package graficos;
 import javax.swing.*;
+import actionListeners.*;
 
 public class Menu extends JMenuBar{
 	
@@ -41,6 +42,8 @@ public class Menu extends JMenuBar{
 		this.estilos.addSeparator();
 		this.estilos.add(fontSize);
 		
+		//añadir acciones
+		open.addActionListener(new OpenDocument());
 	}
 
 }
