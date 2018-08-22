@@ -7,7 +7,7 @@ public class Menu extends JMenuBar{
 	private JMenu archivo;
 	private JMenu estilos;
 	
-	public Menu() {
+	public Menu(JTextArea editor) {
 		
 		this.archivo = new JMenu("Archivo");
 		this.estilos = new JMenu("Estilos");
@@ -42,8 +42,12 @@ public class Menu extends JMenuBar{
 		this.estilos.addSeparator();
 		this.estilos.add(fontSize);
 		
-		//añadir acciones
-		open.addActionListener(new OpenDocument());
+		//anadir acciones
+		OpenDocument openDoc = new OpenDocument(editor);
+		open.addActionListener(openDoc);
+		
+		SaveAsDocument saveAsDoc = new SaveAsDocument(editor);
+		saveAs.addActionListener(saveAsDoc);
 	}
 
 }

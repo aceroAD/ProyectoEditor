@@ -1,7 +1,6 @@
 package graficos;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Toolkit;
 
 import javax.swing.*;
@@ -29,7 +28,8 @@ public class CreacionMarcos extends JFrame{
 		this.posicionCentroX = screenSize.width / 4;
 		this.posicionCentroY = screenSize.height / 4;
 		
-		this.menu = new Menu();
+		this.editorTexto = new Text(width, height);
+		this.menu = new Menu(editorTexto.getTextArea());
 		this.leftMenu = new LeftMenu();
 		
 		
@@ -43,7 +43,7 @@ public class CreacionMarcos extends JFrame{
 	
 		
 		//contruyendo panel
-		this.editorTexto = new Text(width, height);
+		
 		this.add(editorTexto,BorderLayout.CENTER);
 		this.add(this.leftMenu, BorderLayout.WEST);
 	

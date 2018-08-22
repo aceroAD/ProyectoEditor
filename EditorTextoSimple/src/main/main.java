@@ -1,6 +1,5 @@
 package main;
 import graficos.CreacionMarcos;
-import javax.swing.*;
 
 public class main {
 

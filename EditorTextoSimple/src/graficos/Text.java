@@ -2,8 +2,6 @@ package graficos;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.LayoutManager;
-import java.awt.Rectangle;
 
 import javax.swing.*;
 
@@ -30,6 +28,10 @@ public class Text extends JPanel{
 		this.add(this.scroll);
 		this.editor.setVisible(true);
 		
+	}
+	
+	public JTextArea getTextArea() {
+		return this.editor;
 	}
 	
 }
