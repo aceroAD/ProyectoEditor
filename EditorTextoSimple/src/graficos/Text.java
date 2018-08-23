@@ -7,17 +7,17 @@ import javax.swing.*;
 
 public class Text extends JPanel{
 	
-	private JTextArea editor;
+	private TextFile editor;
 	private JScrollPane scroll;
 	
-	public Text(int width, int height) {
+	public Text() {
 		
 		Font basicFont = new Font("Consolas", Font.PLAIN, 18);
 		
 		this.setLayout(new BorderLayout());
 		this.setBackground(Color.RED);
 		
-		this.editor = new JTextArea();
+		this.editor = new TextFile();
 		this.scroll = new JScrollPane(this.editor);
 		
 		this.editor.setFont(basicFont);
@@ -30,8 +30,11 @@ public class Text extends JPanel{
 		
 	}
 	
-	public JTextArea getTextArea() {
+	public TextFile getTextFile() {
 		return this.editor;
+	}
+	public void setFileName(String fileName) {
+		this.editor.setFileName(fileName);
 	}
 	
 }

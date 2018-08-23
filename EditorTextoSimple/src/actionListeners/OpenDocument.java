@@ -9,20 +9,24 @@ import java.io.IOException;
 
 
 import javax.swing.JFrame;
-import javax.swing.JTextArea;
+
+import graficos.TextFile;
 
 public class OpenDocument implements ActionListener{
 
-	private JTextArea texto;
-	public OpenDocument(JTextArea textArea) {
+	private TextFile texto;
+	
+	public OpenDocument(TextFile textArea) {
 		super();
 		texto = textArea;
 	}
 	public void actionPerformed(ActionEvent e) {
 		FileDialog windowForLoad;
-		windowForLoad = new FileDialog(new JFrame(), "Choose Doc", FileDialog.LOAD);
+		windowForLoad = new FileDialog(new JFrame(), "Choose file to open", FileDialog.LOAD);
 		windowForLoad.setVisible(true);
 		this.display(windowForLoad.getDirectory() + windowForLoad.getFile());
+		System.out.println(this.texto.getFileName());
+		
 	}
 	
 	public void display(String fileName) {
@@ -37,12 +41,9 @@ public class OpenDocument implements ActionListener{
 				line = reader.readLine();
 			}
 			reader.close();
-		}catch (IOException e) {
+		} catch (IOException e) {
 			System.exit(0);
 		}
-		
-		
+		this.texto.setFileName(fileName);
 	}
-
-	
 }

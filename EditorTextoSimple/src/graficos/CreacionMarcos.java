@@ -28,8 +28,8 @@ public class CreacionMarcos extends JFrame{
 		this.posicionCentroX = screenSize.width / 4;
 		this.posicionCentroY = screenSize.height / 4;
 		
-		this.editorTexto = new Text(width, height);
-		this.menu = new Menu(editorTexto.getTextArea());
+		this.editorTexto = new Text();
+		this.menu = new Menu(editorTexto.getTextFile());
 		this.leftMenu = new LeftMenu();
 		
 		
@@ -39,6 +39,7 @@ public class CreacionMarcos extends JFrame{
 		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setJMenuBar(menu);
+		this.setMinimumSize(new Dimension(600, 600));
 		
 	
 		

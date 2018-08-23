@@ -9,11 +9,13 @@ import java.io.PrintWriter;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
+import graficos.TextFile;
+
 public class SaveAsDocument implements ActionListener {
 
-	private JTextArea text;
+	private TextFile text;
 	
-	public SaveAsDocument(JTextArea editor) {
+	public SaveAsDocument(TextFile editor) {
 		this.text = editor;
 	}
 	@Override
@@ -23,6 +25,7 @@ public class SaveAsDocument implements ActionListener {
 		windowExplorer.setVisible(true);
 		
 		this.saveAs(windowExplorer.getDirectory() + windowExplorer.getFile());
+		this.text.setFileName(windowExplorer.getFile());
 		
 	}
 	
