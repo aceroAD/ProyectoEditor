@@ -17,15 +17,16 @@ public class OpenDocument implements ActionListener{
 	private TextFile texto;
 	
 	public OpenDocument(TextFile textArea) {
-		super();
+		
 		texto = textArea;
+		
 	}
 	public void actionPerformed(ActionEvent e) {
 		FileDialog windowForLoad;
 		windowForLoad = new FileDialog(new JFrame(), "Choose file to open", FileDialog.LOAD);
 		windowForLoad.setVisible(true);
+		this.texto.setText("");
 		this.display(windowForLoad.getDirectory() + windowForLoad.getFile());
-		System.out.println(this.texto.getFileName());
 		
 	}
 	

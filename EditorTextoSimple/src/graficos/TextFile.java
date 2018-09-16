@@ -9,7 +9,7 @@ public class TextFile extends JTextArea{
 	public TextFile() {
 		
 		super();
-		this.fileName = "aaa";
+		this.fileName = null;
 		
 	}
 	
@@ -19,6 +19,11 @@ public class TextFile extends JTextArea{
 	
 	public void setFileName(String newFileName) {
 		this.fileName = newFileName;
+	}
+	
+	public void setTextBlank() {
+		this.setText("");
+		this.fileName = null;
 	}
 
 }

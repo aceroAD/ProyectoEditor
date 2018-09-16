@@ -25,7 +25,7 @@ public class SaveAsDocument implements ActionListener {
 		windowExplorer.setVisible(true);
 		
 		this.saveAs(windowExplorer.getDirectory() + windowExplorer.getFile());
-		this.text.setFileName(windowExplorer.getFile());
+		this.text.setFileName(windowExplorer.getDirectory() + windowExplorer.getFile());
 		
 	}
 	

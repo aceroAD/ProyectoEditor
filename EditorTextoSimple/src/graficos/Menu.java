@@ -51,6 +51,9 @@ public class Menu extends JMenuBar{
 		
 		SaveAction saveDoc = new SaveAction(editor);
 		save.addActionListener(saveDoc);
+		
+		newDoc.addActionListener(new NewDocument(editor));
+		exit.addActionListener(new ExitProgram());
 	}
 
 }

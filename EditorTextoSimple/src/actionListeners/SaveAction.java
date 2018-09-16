@@ -20,45 +20,45 @@ import graficos.TextFile;
 public class SaveAction implements ActionListener{
 
 	private TextFile text;
-	private String fileName;
 	
 	public SaveAction(TextFile textArea) {
-		super();
 		this.text = textArea;
-		fileName = this.text.getFileName();
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		Path path = Paths.get(this.fileName);
-		System.out.println(this.fileName);
-		if(Files.exists(path)) {
-			this.save(this.fileName);
-			
+		if (this.text.getFileName() == null) {
+			this.fileChooser();
 		}
 		else {
-			FileDialog fileChooser = new FileDialog(new JFrame(), "Select save file", FileDialog.SAVE );
-			fileChooser.setVisible(true);
-			this.save(fileChooser.getDirectory() + fileChooser.getFile());
-			this.text.setFileName(fileChooser.getFile());
+			Path path = Paths.get(this.text.getFileName());
+			if(!Files.exists(path)) {
+				this.fileChooser();
+			}
+			else {
+				this.save(this.text.getFileName());
+			}
 		}
-		
 	}
 	
-	public void save(String fileName) {
+	private void save(String fileName) {
 		try {
 		PrintWriter writer = new PrintWriter(new FileOutputStream(fileName, false));
 		writer.write(this.text.getText());
 		writer.close();
 		
-		}catch (FileNotFoundException e) {
-			System.out.println("File not found");
-			
 		}catch (IOException e) {
 			
 			System.out.println("error" + e.getMessage());
 		}
 		
+	}
+	
+	private void fileChooser() {
+		FileDialog fileChooser = new FileDialog(new JFrame(), "Select save file", FileDialog.SAVE );
+		fileChooser.setVisible(true);
+		this.save(fileChooser.getDirectory() + fileChooser.getFile());
+		this.text.setFileName(fileChooser.getDirectory() + fileChooser.getFile());	
 	}
 	
 }
